@@ -1,0 +1,8 @@
+name: OneLife
+version: @version@
+main: org.cultofclang.onelife.OneLifePlugin
+api-version: "1.16"
+commands:
+  onelife:
+    description: Who am I?
+    usage: /onelife
