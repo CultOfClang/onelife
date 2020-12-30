@@ -1,5 +1,6 @@
 package org.cultofclang.onelife;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,5 +15,8 @@ public class MainListener implements Listener {
         player.sendMessage("Your X Coordinates : " + playerLoc.getX());
         player.sendMessage("Your Y Coordinates : " + playerLoc.getY());
         player.sendMessage("Your Z Coordinates : " + playerLoc.getZ());
+
+
+
     }
 }

@@ -15,6 +15,7 @@ RUN curl -s -o paper.jar https://papermc.io/api/v1/paper/1.16.4/latest/download 
 
 ADD https://ci.dmulloy2.net/job/ProtocolLib/lastStableBuild/artifact/target/ProtocolLib.jar ./plugins/ProtocolLib.jar
 ADD https://ci.md-5.net/job/LibsDisguises/lastSuccessfulBuild/artifact/target/LibsDisguises.jar ./plugins/LibsDisguises.jar
+ADD ./mod/build/libs/*.jar /plugins/
 
 ADD config ./
 
