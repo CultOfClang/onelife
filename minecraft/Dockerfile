@@ -1,4 +1,8 @@
-FROM openjdk:13-alpine
+FROM gradle:6.7.1-jdk11 as build
+ADD ./mod/ ./
+RUN gradle jar
+
+FROM openjdk
 VOLUME "/worlds"
 
 
@@ -9,13 +13,16 @@ EXPOSE 25565
 # RUN git clone https://github.com/kmxz/overlayfs-tools.git
 # RUN make ./overlayfs-tools
 
-RUN apk add curl
 # install paper mc + pre patch it.
-RUN curl -s -o paper.jar https://papermc.io/api/v1/paper/1.16.4/latest/download && java -jar paper.jar --help
+ADD https://papermc.io/api/v1/paper/1.16.4/latest/download ./paper.jar
+RUN java -jar paper.jar --help
 
 ADD https://ci.dmulloy2.net/job/ProtocolLib/lastStableBuild/artifact/target/ProtocolLib.jar ./plugins/ProtocolLib.jar
 ADD https://ci.md-5.net/job/LibsDisguises/lastSuccessfulBuild/artifact/target/LibsDisguises.jar ./plugins/LibsDisguises.jar
-ADD ./mod/build/libs/*.jar /plugins/
+
+COPY --from=build /home/gradle/build/libs/*.jar /plugins/
+
+#ADD ./mod/build/libs/*.jar /plugins/
 
 ADD config ./
 

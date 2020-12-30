@@ -14,10 +14,10 @@ public class OneLifePlugin extends JavaPlugin {
         getLogger().info("Their can only be one.");
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new MainListener(), this);
-        Instance = this;
+        pm.registerEvents(new BaseHunger(), this);
 
-        var players = getServer().getOnlinePlayers();
-        //getCommand("onelife").setExecutor(new );
+        getServer().getScheduler().scheduleSyncRepeatingTask(this, new BaseHunger(), 1, 1);
+        Instance = this;
     }
 
     @Override
