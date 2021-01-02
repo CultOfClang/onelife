@@ -1,5 +1,6 @@
 package org.cultofclang.onelife;
 
+import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,12 +15,13 @@ public class BaseHunger implements Runnable, Listener {
     final float BASE_EXHAUSTION = 40f/(20*60*5);
     
     // spirting costs 0.1 per m in base game.
-    final  float MOVEMENT_EXHAUSTION_PER_M = 0.1f;
+    final  float MOVEMENT_EXHAUSTION_PER_M = 0.01f;
 
     @Override
     public void run() {
         for (Player player:
                 OneLifePlugin.Instance.getServer().getOnlinePlayers()) {
+
             player.setExhaustion(player.getExhaustion() + BASE_EXHAUSTION);
         }
     }

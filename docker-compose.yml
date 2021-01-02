@@ -7,6 +7,12 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=TRUE
     expose:
     - 3306
+  # bot:
+  #   restart: always
+  #   build: 
+  #     context: bot
+  #   depends_on:
+  #     - survival
   survival:
     restart: always
     build: 
@@ -17,8 +23,6 @@ services:
       - ./worlds:/worlds
     expose:
       - 25565
-    ports:
-      - 12345:25565
   waterfall:
     restart: always
     build: waterfall
