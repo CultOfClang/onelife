@@ -34,6 +34,5 @@ public class BaseHunger implements Runnable, Listener {
         float distance = (float)event.getFrom().subtract(event.getTo()).length();
         float de = MOVEMENT_EXHAUSTION_PER_M * distance;
         player.setExhaustion(player.getExhaustion() + de);
-        player.sendMessage("de: "+de);
     }
 }

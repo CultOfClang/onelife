@@ -2,6 +2,8 @@ name: OneLife
 version: @version@
 main: org.cultofclang.onelife.OneLifePlugin
 api-version: "1.16"
+depend: [LibsDisguises]
+authors: [lizelive]
 commands:
   onelife:
     description: Who am I?

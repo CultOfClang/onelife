@@ -26,7 +26,7 @@ public class MainListener implements Listener {
         Location location = event.getLocation();
         boolean isOkay = location.getBlock().getLightFromSky() >= 9;
         isOkay |= event.isFromBonemeal();
-        OneLifePlugin.Instance.getLogger().info("grow baby "+ isOkay);
+        //OneLifePlugin.Instance.getLogger().info("grow baby "+ isOkay);
 
         if(!isOkay) {
             event.setCancelled(true);
